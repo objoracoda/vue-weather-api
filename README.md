@@ -1,8 +1,22 @@
-# Приложение погоды на Vue3 ☁️
+# Weather App (Vue3) ☁️
 
-Работа с Open Weather API для получения данных о погоде.
+Working with the Open Weather API to get weather data.
 
 #### Stack:
    - `Vue3`, `Vite`
+   - `OpenWeatherMap API`
 
-Работа с Open Weather API для получения данных о погоде.
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
