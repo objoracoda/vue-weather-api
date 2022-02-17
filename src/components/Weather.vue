@@ -11,9 +11,11 @@ const count = ref(0)
 <template>
   <h1>Weather API ☁️</h1>
   <input type="text" placeholder="Введите город.." v-on:keyup.enter="getWeather" v-model="cityInput" autocomplete="off">
-  <h3>{{ currentCity }}</h3>
-  <p>Сейчас: {{ temp }}℃</p>
-  <p>Ощущается как: {{ feelsTemp}}℃</p>
+  <div class="info-container" v-if="seenInfo">
+    <h3>{{ currentCity }}</h3>
+    <p>Сейчас: {{ temp }}℃</p>
+    <p>Ощущается как: {{ feelsTemp}}℃</p>
+  </div>
 </template>
 
 <style scoped>
@@ -28,6 +30,7 @@ a {
     data() {
       return {
         key:"0dfa22e7d70560f1dbbceb6280217962",
+        seenInfo: false,
         cityInput: "Moscow",
         currentCity: "Moscow",
         temp: 100,
@@ -36,11 +39,11 @@ a {
     },
     methods: {
       async getWeather() {
+        this.seenInfo = true;
         const baseURL = `https://api.openweathermap.org/data/2.5/weather?q=${this.cityInput}&appid=${this.key}&units=metric`;
         try {
           const response = await fetch(baseURL);
           const data = await response.json();
-          console.log(data);
           this.currentCity = data.name;
           this.temp = Math.round(data.main.temp);
           this.feelsTemp = Math.round(data.main.feels_like);
