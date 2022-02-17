@@ -1,2 +1,8 @@
-# vue-weather-api
-Приложение погоды с Open Weather API
+# Приложение погоды на Vue3 ☁️
+
+Работа с Open Weather API для получения данных о погоде.
+
+#### Stack:
+   - `Vue3`, `Vite`
+
+Работа с Open Weather API для получения данных о погоде.
